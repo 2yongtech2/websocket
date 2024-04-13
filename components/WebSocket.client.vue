@@ -6,7 +6,7 @@
       <button type="submit">Send</button>
     </form>
     <div>
-      <p v-for="entry in history">{{ entry }}</p>
+      <p v-for="entry in history" :key="entry">{{ entry }}</p>
     </div>
   </div>
 </template>
