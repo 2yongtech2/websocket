@@ -2,7 +2,7 @@
 
 ## nitro에서 제공하는 websocket이용
 
-참고영상 : https://www.youtube.com/watch?v=OfY7JcrqkPg   
+참고영상 : https://www.youtube.com/watch?v=OfY7JcrqkPg   (근데 영상 안보긴 했음)
 nitro websocket 공식 문서 : https://nitro.unjs.io/guide/websocket   
 (공식문서는 route 폴더안에 뒀는데 이 예시는 api폴더에둠 근데 api가 맞는거 같음)
 

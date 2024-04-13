@@ -17,6 +17,8 @@
     "nuxt": "npm:nuxt-nightly@latest",
     "uuid": "^9.0.1",
     "vue": "^3.4.21",
-    "vue-router": "^4.3.0"
+    "vue-router": "^4.3.0",
+    "sass": "^1.49.0",
+    "sass-loader": "^12.1.0"
   }
 }
