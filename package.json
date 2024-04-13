@@ -13,9 +13,10 @@
   },
   "dependencies": {
     "@vueuse/nuxt": "^10.9.0",
+    "gh-pages": "^6.1.1",
     "nuxt": "npm:nuxt-nightly@latest",
+    "uuid": "^9.0.1",
     "vue": "^3.4.21",
-    "vue-router": "^4.3.0",
-    "gh-pages": "^6.1.1"
+    "vue-router": "^4.3.0"
   }
 }
