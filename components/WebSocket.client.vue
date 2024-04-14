@@ -1,4 +1,5 @@
 <template>
+  {{ userId }}
   <div class="wrap-chat">
     <input v-model="nickname" placeholder="내 이름 입력">
 
@@ -8,10 +9,9 @@
         :key="index"
       >
         <p class="joined" v-if="entry.type === 'join'">
-          {{ entry.content }}
+          {{ entry.userId }} 님이 입장하셨습니다.
         </p>
-        <!-- 원래는 유저 아이디를 인식하는게 맞음 귀찮아서 이렇게 해놓음 -->
-        <div class="message right" v-else-if="entry.nickname === nickname && entry.type !== 'join'">
+        <div class="message right" v-else-if="entry.userId === userId && entry.type !== 'join'">
           <div class="box-balloon">
             <span class="date">
               {{ entry.date }}
@@ -21,7 +21,7 @@
             </p>
           </div>
         </div>
-        <div class="message left" v-else-if="entry.nickname !== nickname && entry.type !== 'join'">
+        <div class="message left" v-else-if="entry.userId !== userId && entry.type !== 'join'">
           <div class="thumbnail"></div>
           <div>
             <span class="nickname">
@@ -58,10 +58,19 @@ const history = ref<any[]>([]);
 const chatBoxRef = ref<HTMLElement | null>(null);
 // WebSocket 설정
 const { status, data, send, open, close } = useWebSocket(`ws://${location.host}/api/websocket`, {
-  onOpen: () => {
-    // 연결이 열리면 서버에 userId를 전송
-    send(JSON.stringify({ type: 'userId', data: userId }));
-  }
+  onConnected: () => {
+    console.log('WebSocket opened');
+    send(JSON.stringify({ type: 'join', userId: userId }));
+  },
+  onDisconnected: () => {
+    console.log('WebSocket closed');
+  },
+  onMessage: (event) => {
+    console.log('WebSocket message received:', event.data);
+  },
+  onError: (event) => {
+    console.error('WebSocket error:', event);
+  },
 });
 
 onMounted(() => {
@@ -70,8 +79,13 @@ onMounted(() => {
 watch(data, (newValue : any) => {
   //newValue가 string이므로 JSON.parse를 통해 객체로 변환
   const messageObject = JSON.parse(newValue);
-  messageObject.date = formatMessageDate(messageObject.date);
-  history.value.push(messageObject)
+  if(messageObject.type === 'join'){
+    history.value.push(messageObject)
+  }
+  else{
+    messageObject.date = formatMessageDate(messageObject.date);
+    history.value.push(messageObject)
+  }
 });
 
 watch(history.value, (newValue: any) => {
@@ -83,6 +97,8 @@ watch(history.value, (newValue: any) => {
 
 const sendMessage = () => {
   const messageObject = { 
+    type: 'message',
+    userId: userId,
     nickname: nickname.value, 
     content: message.value,
     date: new Date().toISOString() 
@@ -137,9 +153,16 @@ const scrollToBottom = () => {
     flex-direction: column;
     overflow-y: scroll;
     margin: 24px 0;
+    .joined{
+        font-size: 12px;
+        background: rgba(255,255,255,0.3);
+        border-radius: 4px;
+        padding: 4px 8px;
+      }
     .message{
       display: flex;
       margin-bottom: 12px;
+      
       .date{
         font-size: 10px;
         color: gray;

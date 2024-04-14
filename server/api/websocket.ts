@@ -5,12 +5,12 @@ export default defineWebSocketHandler({
   open(peer) {
     console.log('opened WS', peer)
     peer.subscribe(room)
-    const joinMessage = {
-      type: 'join',
-      content: 'Another user joined the chat',
-      time: new Date().toISOString()
-    };
-    peer.publish(room, JSON.stringify(joinMessage))
+    // const joinMessage = {
+    //   type: 'join',
+    //   content: 'Another user joined the chat',
+    //   time: new Date().toISOString()
+    // };
+    // peer.publish(room, JSON.stringify(joinMessage))
   },
   close(peer) {
     console.log('closed WS', peer)
