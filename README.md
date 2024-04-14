@@ -10,6 +10,7 @@ nitro websocket 공식 문서 : https://nitro.unjs.io/guide/websocket
 vue use    
 온갖 잡것을 쉽게 사용하게 해주는 라이브러리 - 개좋은거 같음   
 https://vueuse.org/
+https://vueuse.org/core/useWebSocket/
 
 uuid   
 클라이언트에 고유한 id를 부여하기 위해 사용
