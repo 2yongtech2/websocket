@@ -12,13 +12,16 @@
     "deploy": "gh-pages -d .output/public"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.47.10",
     "@vueuse/nuxt": "^10.9.0",
     "gh-pages": "^6.1.1",
     "nuxt": "npm:nuxt-nightly@latest",
+    "nuxt-app": "file:",
+    "pinia": "^2.3.0",
+    "sass": "^1.49.0",
+    "sass-loader": "^12.1.0",
     "uuid": "^9.0.1",
     "vue": "^3.4.21",
-    "vue-router": "^4.3.0",
-    "sass": "^1.49.0",
-    "sass-loader": "^12.1.0"
+    "vue-router": "^4.3.0"
   }
 }

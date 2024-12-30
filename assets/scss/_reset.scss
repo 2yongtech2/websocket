@@ -1,0 +1,53 @@
+// https://github.com/jgthms/minireset.css
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+$font-system: -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+$font-family-sans-serif: 'Pretendard', #{$font-system};
+*{font-family: $font-family-sans-serif; &:focus-visible{outline: none;} letter-spacing: -0.015em; line-height: 1.3;}
+blockquote, body, dd, dl, dt, fieldset, figure, h1, h2, h3, h4, h5, h6, hr, html, iframe, legend, li, ol, p, pre, textarea, ul {margin:0;padding:0}
+h1, h2, h3, h4, h5, h6 {font-size:100%;font-weight:600}
+ul {list-style:none; padding-left: 0}
+a{text-decoration: none;}
+button, input, select {
+  margin:0;
+  padding: 0;
+  border: none;
+  background: none;
+  display: block;
+  font-size: inherit;
+  color: inherit;
+  &:focus-visible{
+    outline: none;
+    border-width: inherit;
+  }
+}
+html {box-sizing:border-box; font-size: 16px;}
+*, :after, :before {box-sizing:inherit}
+img, video {height:auto;max-width:100%}
+iframe {border:0}
+table {border-collapse:collapse;border-spacing:0}
+td, th {padding:0}
+button, a{cursor: pointer;}
+label{
+  line-height: 1;
+}
+
+hr{
+  outline: none;
+  border: none;
+}
+
+.por{
+  position: relative;
+  & *{
+    font-family: inherit;
+    font-weight: inherit;
+    letter-spacing: inherit;
+    
+  }
+}
+
+a{
+  color: inherit;
+  text-decoration: none;
+}

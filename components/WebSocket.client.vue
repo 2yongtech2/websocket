@@ -41,7 +41,7 @@
     </div>
 
     <div class="box-input">
-      <input v-model="message" placeholder="메세지 입력">
+      <input v-model="message" placeholder="메세지 입력" name="inputText" @keyup.enter="sendMessage">
       <button @click="sendMessage">Send</button>
     </div>
   </div>

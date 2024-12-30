@@ -1,5 +1,7 @@
 <template>
-  <div>
-    <WebSocket />
-  </div>
+  <NuxtLayout>
+    <NuxtPage/>
+  </NuxtLayout>
 </template>
+<script setup>
+</script>

@@ -6,5 +6,8 @@ export default defineNuxtConfig({
     experimental: {
       websocket: true
     }
-  }
+  },
+  css: [
+    '@/assets/scss/common.scss',
+  ],
 })
